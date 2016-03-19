@@ -66,7 +66,7 @@ public class Avci_Alternative {
 		long end = System.currentTimeMillis();
 		data_input.close();
 		System.setOut(oldStdout);
-        System.out.println("Execution time is: "+((double)(end-start)/1000) + " seconds. Formatting output..");
+        	System.out.println("Execution time is: "+((double)(end-start)/1000) + " seconds. Formatting output..");
 		formatOutput();
 
 
@@ -131,12 +131,10 @@ public class Avci_Alternative {
 					
 					if(!oneItemSet.containsKey(key)) {
 							oneItemSet.put(key, new Avci_Alternative().new dataPoint(1, itemset, numTrans));
-//							oneItemSet.get(key).tlist.add(numTrans);
 					}
 					else {
 							entry.count++;
 							entry.ownDB.add(numTrans);
-//							oneItemSet.get(key).tlist.add(numTrans);
 					}
 				}
 				
@@ -167,13 +165,11 @@ public class Avci_Alternative {
 				
 			}
 			
-//			List<Integer> trash = new ArrayList<Integer>();
 			
 			//remove infrequent items
 			
 			for(dataPoint entry : oneItemSet.values()) {
 				if(entry.count<minsup) {
-//					trash.add(oneItemSet.get(key).itemset[0]);
 					oneItemSet.remove(Arrays.toString(entry.itemset));
 				}
 				else
@@ -181,19 +177,10 @@ public class Avci_Alternative {
 					
 			}
 			
-			//remove one-infrequent items from DB- Shrinking
-//			for(List<Integer> element : transDB) {
-//				for(int z=0; z<element.size(); z++) {
-//					if(trash.contains(element.get(z))) {
-//						element.remove(element.get(z));
-//					}
-//				}
-//			}
-			
+
 			
 			for(dataPoint entry : twoItemSet.values()) {
 				if(entry.count<minsup) {
-//					trash.add(oneItemSet.get(key).itemset[0]);
 					twoItemSet.remove(Arrays.toString(entry.itemset));
 				}
 				else
@@ -240,7 +227,6 @@ public class Avci_Alternative {
 		//prune infrequent items
 		for(dataPoint entry : nextItemSet.values()) {
 			if(entry.count<minsup) {
-//				trash.add(oneItemSet.get(key).itemset[0]);
 				nextItemSet.remove(Arrays.toString(entry.itemset));
 			}
 			else
