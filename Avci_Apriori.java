@@ -123,11 +123,9 @@ public class Avci_Apriori {
 					
 					if(!oneItemSet.containsKey(key)) {
 							oneItemSet.put(key, new Avci_Apriori().new dataPoint(1, itemset));
-//							oneItemSet.get(key).tlist.add(numTrans);
 					}
 					else {
 							oneItemSet.get(key).count++;
-//							oneItemSet.get(key).tlist.add(numTrans);
 					}
 				}
 				
@@ -152,13 +150,10 @@ public class Avci_Apriori {
 				line=data_input.readLine();
 			}
 			
-//			List<Integer> trash = new ArrayList<Integer>();
-			
 			//remove infrequent items
 			
 			for(dataPoint entry : oneItemSet.values()) {
 				if(entry.count<minsup) {
-//					trash.add(oneItemSet.get(key).itemset[0]);
 					oneItemSet.remove(Arrays.toString(entry.itemset));
 				}
 				else
@@ -166,19 +161,8 @@ public class Avci_Apriori {
 					
 			}
 			
-			//remove one-infrequent items from DB- Shrinking
-//			for(List<Integer> element : transDB) {
-//				for(int z=0; z<element.size(); z++) {
-//					if(trash.contains(element.get(z))) {
-//						element.remove(element.get(z));
-//					}
-//				}
-//			}
-			
-			
 			for(dataPoint entry : twoItemSet.values()) {
 				if(entry.count<minsup) {
-//					trash.add(oneItemSet.get(key).itemset[0]);
 					twoItemSet.remove(Arrays.toString(entry.itemset));
 				}
 				else
@@ -223,7 +207,6 @@ public class Avci_Apriori {
 		//prune infrequent items
 		for(dataPoint entry : nextItemSet.values()) {
 			if(entry.count<minsup) {
-//				trash.add(oneItemSet.get(key).itemset[0]);
 				nextItemSet.remove(Arrays.toString(entry.itemset));
 			}
 			else
